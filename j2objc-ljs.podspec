@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.header_mappings_dir = 'dist/include'
   s.prepare_command = <<-CMD
    rm -rf "dist"
-    ln -s "/Users/rikinzan/Downloads/actor-platform/actor-apps/build-tools/dist/j2objc/0.9.7" ./dist
+   ln -s "/Users/rikinzan/Downloads/actor-platform/actor-apps/build-tools/dist/j2objc/0.9.7" ./dist
   CMD
   
   s.subspec 'lib' do |lib|
