@@ -22,27 +22,27 @@ Pod::Spec.new do |s|
   s.subspec 'lib' do |lib|
     lib.frameworks = 'Security'
     lib.osx.frameworks = 'ExceptionHandling'
-    lib.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/j2objc-local/dist/lib"', \
-      'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/j2objc-local/dist/include"' }
+    lib.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/j2objc-ljs/dist/lib"', \
+      'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/j2objc-ljs/dist/include"' }
 
     lib.subspec 'jre' do |jre|
       jre.preserve_paths = 'dist'
       jre.libraries = 'jre_emul', 'z'
-      # jre.xcconfig = { 'OTHER_LDFLAGS' => '-force_load ${PODS_ROOT}/j2objc-local/dist/lib/libjre_emul.a' }
+      # jre.xcconfig = { 'OTHER_LDFLAGS' => '-force_load ${PODS_ROOT}/j2objc-ljs/dist/lib/libjre_emul.a' }
     end
 
     lib.subspec 'jsr305' do |jsr305|
-      jsr305.dependency 'j2objc-local/dist/lib/jre'
+      jsr305.dependency 'j2objc-ljs/dist/lib/jre'
       jsr305.libraries = 'jsr305'
     end
 
     lib.subspec 'junit' do |junit|
-      junit.dependency 'j2objc-local/dist/lib/jre'
+      junit.dependency 'j2objc-ljs/dist/lib/jre'
       junit.libraries = 'j2objc_main', 'junit', 'mockito'
     end
     
     lib.subspec 'guava' do |guava|
-      guava.dependency 'j2objc-local/dist/lib/jre'
+      guava.dependency 'j2objc-ljs/dist/lib/jre'
       guava.libraries = 'guava'
     end
   end
